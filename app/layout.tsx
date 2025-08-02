@@ -9,7 +9,19 @@ const mainFont = localFont({
   src: [
     { path: '../public/fonts/FiraCode.ttf' }
   ],
-  variable: '--font-main'
+  variable: '--font-main',
+  preload: true,
+  fallback: [
+    "ui-monospace",
+    "SFMono-Regular",
+    "Menlo",
+    "Monaco",
+    "Consolas",
+    "Liberation Mono",
+    "Courier New",
+    "monospace"
+  ],
+  display: 'block'
 })
 
 export const metadata: Metadata = {

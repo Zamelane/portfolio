@@ -70,10 +70,14 @@ export function FooterSocialItem({ icon, text, url, position, small, className }
   return (
     <Link href={url} className={cn(
       "h-full flex justify-center items-center",
+      "hover:bg-slate-700 hover:text-slate-50 transition-colors duration-150",
       small ? 'px-4' : 'px-8',
       cn(classNameToSet, className)
     )}>
-      <p className="flex flex-row items-center gap-2"> <span className="not-lg:hidden">{text}</span> <i className={cn(icon, 'ri-xl')} /></p>
+      <p className="flex flex-row items-center gap-2">
+        { text && <span className="not-lg:hidden">{text}</span>}
+        <i className={cn(icon, 'ri-xl')} />
+      </p>
     </Link>
   )
 }

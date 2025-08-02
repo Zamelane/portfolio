@@ -2,8 +2,6 @@
 
 
 :root {
-  --font-main: 'FiraCode', sans-serif;
-
   --background: #ffffff;
   --foreground: #90A1B9;
 }
@@ -19,11 +17,12 @@
     --color-link-foreground: #FFA1AD;
 
     --color-codeblock-background: #011221;
+    
+    --color-primary-background: #FFB86A;
 }
 
 body {
   @apply text-foreground text-base;
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
   font-family: var(--font-main);
 }

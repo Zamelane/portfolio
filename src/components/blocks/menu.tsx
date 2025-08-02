@@ -43,6 +43,7 @@ type MenuItemProps = {
 };
 
 export function MenuItem({ name, url, delay }: MenuItemProps) {
+  const menu = useContext(MenuContext);
   const className = "py-3 px-6 flex items-center";
   
   const itemVariants = {
@@ -68,6 +69,7 @@ export function MenuItem({ name, url, delay }: MenuItemProps) {
       >
         <Link 
           href={url} 
+          onClick={() => menu.setValue(false)}
           className={cn(className, "text-heading-foreground border-t border-solid border-theme-stroke")}
         >
           <p>{name}</p>
