@@ -19,6 +19,9 @@
     --color-codeblock-background: #011221;
     
     --color-primary-background: #FFB86A;
+    --color-primary-inverted: #020618;
+    --color-primary-hover: #FFD6A7;
+    --color-primary-hover-inverted: #020618;
 }
 
 body {
