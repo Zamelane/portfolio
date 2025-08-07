@@ -16,34 +16,49 @@ import {
   CodeStringValue,
   CodeVarName,
 } from "@/src/components/code";
+import { useMediaQuery } from "react-responsive";
 
 export default function AboutPage() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
+
   return (
-    <div className="h-full flex flex-row flex-nowrap">
-      <div className="h-full flex flex-col border-r border-r-theme-stroke min-w-[244px] max-w-min">
-        <Spoiler title="contacts">
+    <div className="h-full flex flex-row flex-nowrap not-md:flex-col md:overflow-hidden">
+      <div className="text-heading-foreground text-sm p-6 md:hidden">
+        _contact-me
+      </div>
+      <div className="h-full flex flex-col border-r border-r-theme-stroke min-w-[244px] max-w-min not-md:max-w-full not-md:border-r-0 not-md:h-max not-md:gap-1">
+        <Spoiler
+          title="contacts"
+          className="not-md:bg-slate-700"
+          childrenLayoutClassName="not-md:border-0 not-md:-mb-1"
+        >
           <ContactItem icon="ri-mail-fill">zamelane@vk.com</ContactItem>
           <ContactItem icon="ri-phone-fill">+79539266829</ContactItem>
         </Spoiler>
-        <Spoiler title="find-me-also-in">
+        <Spoiler
+          title="find-me-also-in"
+          className="not-md:bg-slate-700"
+          childrenLayoutClassName="not-md:border-0 not-md:-mb-1"
+        >
           <ContactItem href="https://123.ru">Discord</ContactItem>
         </Spoiler>
       </div>
       <div className="w-full">
-        <TabLayout />
+        <TabLayout className="not-md:hidden" />
         <div className="h-full flex flex-row">
-          <div className="p-10 w-4/9 inline-flex pt-32 justify-center">
-            <div className="flex flex-col gap-6 min-w-[372px]">
+
+          <div className="p-10 w-4/9 inline-flex pt-32 justify-center not-2xl:w-full not-md:p-6">
+            <div className="flex flex-col gap-6 min-w-[372px] not-md:min-w-full">
               <TextInput label="_name:" changeValue={v => setName(v)} />
               <TextInput label="_email:" changeValue={v => setEmail(v)} />
               <TextInput label="_message:" changeValue={v => setMessage(v)} inputType="textarea" />
-              <Button className="self-start">submit-message</Button>
+              <Button className="self-start" disabled>submit-message</Button>
             </div>
           </div>
-          <div className="inline-flex w-5/9">
+
+          <div className="inline-flex w-5/9 not-2xl:hidden">
             <div className="w-full border-l-2 border-r border-theme-stroke px-7 py-3">
               <CodeLine lineNumber={1} lineSymbols={2}>
                 <CodeConst />
@@ -100,20 +115,20 @@ export default function AboutPage() {
               <CodeLine lineNumber={8} lineSymbols={2}>
                 {"}"}
               </CodeLine>
-              <CodeLine lineNumber={9} lineSymbols={2}/>
+              <CodeLine lineNumber={9} lineSymbols={2} />
               <CodeLine lineNumber={10} lineSymbols={2}>
                 <div className="inline-flex">
                   <CodeVarName>button</CodeVarName>
                   .
                   <CodeFunctionExecute>addEventListener</CodeFunctionExecute>
                   {"("}
-                    <CodeStringValue quotationMark="'">click</CodeStringValue>
-                    , 
-                    () <CodeOperator>{"=>"}</CodeOperator> {" {"}
+                  <CodeStringValue quotationMark="'">click</CodeStringValue>
+                  ,
+                  () <CodeOperator>{"=>"}</CodeOperator> {" {"}
                 </div>
               </CodeLine>
               <CodeLine lineNumber={11} lineSymbols={2}>
-                <p/>
+                <p />
                 <div className="inline-flex">
                   <CodeVarName>form</CodeVarName>
                   .
@@ -138,16 +153,23 @@ export default function AboutPage() {
 
 type SpoilerProps = ChildrenProps & {
   isOpenDefault?: boolean;
+  isMobileOpenDefault?: boolean;
   title: string;
+  className?: string;
+  childrenLayoutClassName?: string;
 };
 
-function Spoiler({ title, isOpenDefault = true, children }: SpoilerProps) {
-  const [isOpen, setIsOpen] = useState(isOpenDefault);
+function Spoiler({ title, isOpenDefault = true, isMobileOpenDefault = false, children, className, childrenLayoutClassName }: SpoilerProps) {
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const [isOpen, setIsOpen] = useState(isMobile ? isMobileOpenDefault : isOpenDefault);
 
   return (
     <div className="flex flex-col">
       <motion.p
-        className="inline-flex gap-3 px-6 py-3 max-h-12 border-b border-b-theme-stroke text-slate-50 cursor-pointer select-none"
+        className={cn(
+          "inline-flex gap-3 px-6 py-3 max-h-12 border-b border-b-theme-stroke text-slate-50 cursor-pointer select-none",
+          className
+        )}
         onClick={() => setIsOpen((v) => !v)}
         whileTap={{ scale: 0.98 }}
       >
@@ -179,9 +201,12 @@ function Spoiler({ title, isOpenDefault = true, children }: SpoilerProps) {
                 opacity: { duration: 0.1 },
               },
             }}
-            className="flex flex-col gap-2 border-b border-b-theme-stroke overflow-hidden"
+            className={cn(
+              "p-3 flex flex-col gap-2 border-b border-b-theme-stroke overflow-hidden",
+              childrenLayoutClassName
+            )}
           >
-            <div className="p-3">{children}</div>
+            {children}
           </motion.div>
         )}
       </AnimatePresence>

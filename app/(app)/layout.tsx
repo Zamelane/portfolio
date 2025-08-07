@@ -25,7 +25,7 @@ export default function Layout({ children }: ChildrenProps) {
                 transition: { delay: 0.2, duration: 0.3 }
               }}
               exit={{ opacity: 0, height: 0 }}
-              className="h-full overflow-hidden"
+              className="h-full overflow-y-auto"
             >
               {children}
             </motion.div>

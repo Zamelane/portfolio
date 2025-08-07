@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   // experimental: {
   //   globalNotFound: true
   // }
+  output: 'export'
 };
 
 export default nextConfig;

@@ -1,3 +1,5 @@
+"use client"
+
 import { HomeCode } from "@/src/components/blocks/homeCode";
 import { BlueBlur, GreenBlur } from "@/src/components/blurs";
 import { CodeConst, CodeLine, CodeStringValue, CodeVarName, Comment } from "@/src/components/code";
@@ -5,7 +7,7 @@ import { cn } from "@/src/lib/utils";
 
 export default function Home() {
   return (
-    <div className="h-full flex flex-row gap-[146px] justify-center items-center relative not-2xl:gap-0 not-2xl:px-6">
+    <div className="overflow-hidden h-full flex flex-row gap-[146px] justify-center items-center relative not-2xl:gap-0 not-2xl:px-6">
 
       <section>
         <div>

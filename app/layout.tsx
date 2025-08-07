@@ -3,7 +3,7 @@ import "./globals.css";
 import 'remixicon/fonts/remixicon.css';
 import { ChildrenProps } from "@/src/types";
 import localFont from 'next/font/local';
-import { Providers } from "@/src/components/providers";
+import { NoSSRProviders } from "@/src/components/noSsrProviders";
 
 const mainFont = localFont({
   src: [
@@ -35,9 +35,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={mainFont.variable}>
       <body>
-        <Providers>
+        <NoSSRProviders>
           {children}
-        </Providers>
+        </NoSSRProviders>
       </body>
     </html>
   );
