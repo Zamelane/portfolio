@@ -3,7 +3,7 @@ import "./globals.css";
 import 'remixicon/fonts/remixicon.css';
 import { ChildrenProps } from "@/src/types";
 import localFont from 'next/font/local';
-import { NoSSRProviders } from "@/src/components/noSsrProviders";
+import { NoSSRProviders } from "@/src/components/noSSRProviders";
 
 const mainFont = localFont({
   src: [

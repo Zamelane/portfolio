@@ -1,10 +1,6 @@
 "use client";
 
-import { cn } from "@/src/lib/utils";
-import { ChildrenProps } from "@/src/types";
-import Link from "next/link";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { TabLayout } from "@/src/components/blocks/tab";
 import { TextInput } from "@/src/components/input";
 import { Button } from "@/src/components/button";
@@ -16,7 +12,8 @@ import {
   CodeStringValue,
   CodeVarName,
 } from "@/src/components/code";
-import { useMediaQuery } from "react-responsive";
+import { Spoiler } from "@/src/components/spoiler";
+import { ContactItem } from "@/src/components/contactItem";
 
 export default function AboutPage() {
   const [name, setName] = useState("")
@@ -148,92 +145,5 @@ export default function AboutPage() {
         </div>
       </div>
     </div>
-  );
-}
-
-type SpoilerProps = ChildrenProps & {
-  isOpenDefault?: boolean;
-  isMobileOpenDefault?: boolean;
-  title: string;
-  className?: string;
-  childrenLayoutClassName?: string;
-};
-
-function Spoiler({ title, isOpenDefault = true, isMobileOpenDefault = false, children, className, childrenLayoutClassName }: SpoilerProps) {
-  const isMobile = useMediaQuery({ maxWidth: 768 });
-  const [isOpen, setIsOpen] = useState(isMobile ? isMobileOpenDefault : isOpenDefault);
-
-  return (
-    <div className="flex flex-col">
-      <motion.p
-        className={cn(
-          "inline-flex gap-3 px-6 py-3 max-h-12 border-b border-b-theme-stroke text-slate-50 cursor-pointer select-none",
-          className
-        )}
-        onClick={() => setIsOpen((v) => !v)}
-        whileTap={{ scale: 0.98 }}
-      >
-        <motion.i
-          className="ri-arrow-down-s-fill"
-          animate={{ rotate: isOpen ? 0 : -90 }}
-          transition={{ duration: 0.2 }}
-        />
-        <span>{title}</span>
-      </motion.p>
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{
-              height: "auto",
-              opacity: 1,
-              transition: {
-                height: { duration: 0.3 },
-                opacity: { duration: 0.2, delay: 0.1 },
-              },
-            }}
-            exit={{
-              height: 0,
-              opacity: 0,
-              transition: {
-                height: { duration: 0.3 },
-                opacity: { duration: 0.1 },
-              },
-            }}
-            className={cn(
-              "p-3 flex flex-col gap-2 border-b border-b-theme-stroke overflow-hidden",
-              childrenLayoutClassName
-            )}
-          >
-            {children}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-
-type ContactItemProps = ChildrenProps & {
-  icon?: string;
-  href?: string;
-};
-
-function ContactItem({ icon, children, href }: ContactItemProps) {
-  return (
-    <motion.div
-      className={cn(
-        "inline-flex items-center gap-3 px-3",
-        href && "cursor-pointer hover:text-slate-50 transition-colors delay-150"
-      )}
-      whileHover={href ? { x: 3 } : {}}
-    >
-      <i
-        className={
-          icon ? icon : href ? "ri-external-link-line" : "ri-question-line"
-        }
-      />
-      {href ? <Link href={href}>{children}</Link> : <span>{children}</span>}
-    </motion.div>
   );
 }

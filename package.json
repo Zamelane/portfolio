@@ -12,10 +12,13 @@
   "dependencies": {
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.12",
+    "fs": "^0.0.1-security",
+    "gray-matter": "^4.0.3",
     "hamburger-react": "^2.5.2",
     "next": "15.4.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-markdown": "^10.1.0",
     "react-responsive": "^10.0.1",
     "remixicon": "^4.6.0",
     "tailwind-merge": "^3.3.1"
