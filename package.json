@@ -3,10 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "bun scripts/prebuild.ts",
+    "prebuild": "bun scripts/prebuild.ts",
+
     "dev": "next dev",
     "dev-tb": "next dev --turbopack",
+
     "build": "next build",
     "start": "next start",
+    
     "lint": "next lint"
   },
   "dependencies": {

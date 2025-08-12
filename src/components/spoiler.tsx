@@ -14,7 +14,18 @@ type SpoilerProps = ChildrenOptionalProps & {
 
 export function Spoiler({ title, isOpenDefault = true, isMobileOpenDefault = false, children, className, childrenLayoutClassName }: SpoilerProps) {
   const isMobile = useMediaQuery({ maxWidth: 768 });
-  const [isOpen, setIsOpen] = useState(isMobile ? isMobileOpenDefault : isOpenDefault);
+
+  const [isDesktopOpen, setIsDesktopOpen] = useState(isOpenDefault);
+  const [isMobileOpen, setIsMobileOpen] = useState(isMobileOpenDefault);
+
+  const isOpen = isMobile ? isMobileOpen : isDesktopOpen;
+  const setReverseOpen = () => {
+    if (isMobile) {
+      setIsMobileOpen(isOpen => !isOpen);
+    } else {
+      setIsDesktopOpen(isOpen => !isOpen);
+    }
+  }
 
   return (
     <div className="flex flex-col">
@@ -23,7 +34,7 @@ export function Spoiler({ title, isOpenDefault = true, isMobileOpenDefault = fal
           "inline-flex gap-3 px-6 py-3 max-h-12 border-b border-b-theme-stroke text-slate-50 cursor-pointer select-none",
           className
         )}
-        onClick={() => setIsOpen((v) => !v)}
+        onClick={setReverseOpen}
         whileTap={{ scale: 0.98 }}
       >
         <motion.i

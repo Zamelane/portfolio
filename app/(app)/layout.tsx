@@ -11,8 +11,8 @@ export default function Layout({ children }: ChildrenProps) {
   const menu = useContext(MenuContext);
 
   return (
-    <div className="flex justify-center items-center w-full h-screen p-10 bg-theme-backdrop not-lg:p-2">
-      <div className="flex flex-col w-full h-full bg-theme-background border border-solid border-theme-stroke rounded-lg box-border overflow-hidden">
+    <div className="flex justify-center items-center w-full h-screen p-0 sm:p-2 lg:p-10 bg-theme-backdrop">
+      <div className="flex flex-col w-full h-full bg-theme-background sm:border border-solid border-theme-stroke sm:rounded-lg box-border overflow-hidden">
         <Header />
 
         <AnimatePresence>

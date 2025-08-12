@@ -8,7 +8,7 @@ interface TreeNode {
   children?: TreeNode[]
 }
 
-const personalInfoDirectory = path.join(process.cwd(), 'personal-info');
+const personalInfoDirectory = path.join(process.cwd(), 'static', 'personal-info');
 
 export function getFolderData(
   directory: string = personalInfoDirectory,
@@ -41,7 +41,18 @@ export function getFolderData(
       }
     }
 
-    return nodes;
+    return nodes.sort((a, b) => {
+      const aIsFolder = a.type === 'directory'
+      const bIsFolder = b.type === 'directory'
+
+      return aIsFolder && !bIsFolder
+        ? -1
+        : (
+          !aIsFolder && bIsFolder
+            ? 1
+            : 0
+        ) 
+    });
   } catch (error) {
     console.error('Error reading directory:', error);
     return [];

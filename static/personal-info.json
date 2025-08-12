@@ -1,0 +1,31 @@
+[
+  {
+    "type": "directory",
+    "name": "bio",
+    "path": "bio",
+    "children": []
+  },
+  {
+    "type": "directory",
+    "name": "education",
+    "path": "education",
+    "children": [
+      {
+        "type": "file",
+        "name": "college.md",
+        "path": "education\\college.md"
+      }
+    ]
+  },
+  {
+    "type": "directory",
+    "name": "interests",
+    "path": "interests",
+    "children": []
+  },
+  {
+    "type": "file",
+    "name": "about-me.md",
+    "path": "about-me.md"
+  }
+]
