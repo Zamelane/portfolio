@@ -72,7 +72,11 @@ export function MenuItem({ name, url, delay }: MenuItemProps) {
           onClick={() => menu.setValue(false)}
           className={cn(className, "text-heading-foreground border-t border-solid border-theme-stroke")}
         >
-          <p>{name}</p>
+          <motion.p 
+            whileHover={url ? { x: 3 } : {}}
+          >
+            {name}
+          </motion.p>
         </Link>
       </motion.div>
     );
