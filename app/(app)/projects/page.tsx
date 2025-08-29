@@ -55,8 +55,8 @@ export default function Page() {
             </p>
           </Tab>
         </TabLayout>
-        <AnimatePresence mode="popLayout">
-          <div className="h-full w-full md:overflow-y-auto grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-7 p-16 not-md:p-6">
+        <div className="h-full w-full md:overflow-y-auto grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-7 p-16 not-md:p-6">
+          <AnimatePresence mode="popLayout">
             {
               projects.map((project, i) => {
                 // Проверяем, что подходят ВСЕ фильтры
@@ -70,8 +70,8 @@ export default function Page() {
                 return <ProjectCard key={i} data={project} className={i === projects.length - 1 && 'pb-10' || undefined} />
               })
             }
-          </div>
-        </AnimatePresence>
+          </AnimatePresence>
+        </div>
       </div>
 
     </div>
