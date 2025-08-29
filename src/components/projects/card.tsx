@@ -11,6 +11,9 @@ export type ProjectCardType = {
   className?: string
 }
 export function ProjectCard({ data, className }: ProjectCardType) {
+  const imgSrc = data.image.startsWith('http')
+    ? data.image
+    : `/static/${data.slug}/${data.image}`
   return (
     <div className={cn("flex flex-col gap-4 w-full", className)}>
 
@@ -19,9 +22,9 @@ export function ProjectCard({ data, className }: ProjectCardType) {
         <span>{" // " + data.slug}</span>
       </p>
 
-      <div className="min-h-80 bg-slate-950 border border-slate-800 rounded-2xl">
-        <div className="min-h-36">
-          <Image src={''} alt="" />
+      <div className="min-h-80 bg-slate-950 border border-slate-800 rounded-2xl overflow-clip">
+        <div className="min-h-56 max-h-56 overflow-hidden relative">
+          <Image src={imgSrc} alt="" fill className="object-cover" />
           <i></i>
         </div>
 

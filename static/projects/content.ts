@@ -51,7 +51,7 @@ export const projectTechnologies: ProjectTechnologiesType = [
 
 export const projects: ProjectContentType[] = [
   {
-    image: '',
+    image: '1.jpg',
     slug: '_diary-spo',
     title: 'SPO Diary — a wrapper over the Network City diary for the SPO of the Tomsk region',
     meta: {
@@ -60,38 +60,56 @@ export const projects: ProjectContentType[] = [
     content: []
   },
   {
-    image: '',
-    slug: '_diary-spo',
-    title: 'SPO Diary — a wrapper over the Network City diary for the SPO of the Tomsk region',
+    image: '1.png',
+    slug: '_lophius',
+    title: '🏭 A system for automating the collection, tracking, curation of media, and much more',
     meta: {
-      technologies: ['Vite', 'React', 'TypeScript', 'PostgreSQL', 'PWA', 'Android'],
+      technologies: ['NextJS', 'React', 'TypeScript', 'PostgreSQL'],
     },
     content: []
   },
   {
-    image: '',
-    slug: '_diary-spo',
-    title: 'SPO Diary — a wrapper ',
+    image: '1.png',
+    slug: '_modbus',
+    title: 'An application for working with devices using the modbus protocol',
     meta: {
-      technologies: ['Vite', 'React', 'TypeScript', 'PostgreSQL', 'PWA', 'Android'],
+      technologies: ['C#', 'WPF'],
     },
     content: []
   },
   {
-    image: '',
-    slug: '_diary-spo',
-    title: 'SPO Diary — a wrapper over the Network City diary for the SPO of the Tomsk region',
+    image: '1.png',
+    slug: '_change-score-extension',
+    title: 'An extension for changing the score on the site\'s test completion screen videouroki.net',
     meta: {
-      technologies: ['Vite', 'React', 'TypeScript', 'PostgreSQL', 'PWA', 'Android'],
+      technologies: ['JavaScript'],
     },
     content: []
   },
   {
-    image: '',
-    slug: '_diary-spo',
-    title: 'SPO Diary — a wrapper over the Network City diary for the SPO of the Tomsk region',
+    image: '1.png',
+    slug: '_effective-mobile-test-task',
+    title: '💻 A test task from effective mobile',
     meta: {
-      technologies: ['Vite', 'React', 'TypeScript', 'PostgreSQL', 'PWA', 'Android'],
+      technologies: ['Vite', 'React', 'TypeScript', 'PostgreSQL', 'PWA'],
+    },
+    content: []
+  },
+  {
+    image: '1.png',
+    slug: '_checkers-game-app',
+    title: 'A game of checkers',
+    meta: {
+      technologies: ['C#'],
+    },
+    content: []
+  },
+  {
+    image: '1.png',
+    slug: '_online-timer',
+    title: 'Timer until my friend\'s return from the army',
+    meta: {
+      technologies: ['NextJS', 'React', 'TypeScript'],
     },
     content: []
   },
