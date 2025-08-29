@@ -1,6 +1,12 @@
 [
   {
     "type": "directory",
+    "name": "bio",
+    "path": "bio",
+    "children": []
+  },
+  {
+    "type": "directory",
     "name": "education",
     "path": "education",
     "children": [
@@ -10,6 +16,12 @@
         "path": "education\\college.md"
       }
     ]
+  },
+  {
+    "type": "directory",
+    "name": "interests",
+    "path": "interests",
+    "children": []
   },
   {
     "type": "file",
