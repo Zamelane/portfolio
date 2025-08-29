@@ -14,7 +14,6 @@ export function GreenBlur({ className }: { className?: string }) {
         </filter>
       </defs>
     </svg>
-
   )
 }
 

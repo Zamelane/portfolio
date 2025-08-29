@@ -14,11 +14,28 @@ import {
 } from "@/src/components/code";
 import { Spoiler } from "@/src/components/spoiler";
 import { ContactItem } from "@/src/components/contactItem";
+import { config } from "@/config";
+import { redirect, RedirectType } from "next/navigation";
 
 export default function AboutPage() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
+
+  const buttonClickHandler = () => {
+    const startMessage = [
+      `Здравствуйте! Меня зовут ${name}, я хочу задать вопрос.`,
+      message,
+      `Если вам так удобнее, то можете ответить на мой email: ${email}.`
+    ]
+
+    window.navigator.clipboard.writeText(startMessage.join("\n"))
+
+    redirect(
+      `https://t.me/${config.tg_nickname}/?text=${startMessage.join("\n ")}`,
+      RedirectType.push
+    )
+  }
 
   return (
     <div className="h-full flex flex-row flex-nowrap not-md:flex-col md:overflow-hidden">
@@ -26,21 +43,21 @@ export default function AboutPage() {
         _contact-me
       </div>
       <div className="h-full flex flex-col border-r border-r-theme-stroke min-w-[244px] max-w-min not-md:max-w-full not-md:border-r-0 not-md:h-max not-md:gap-1">
-        <Spoiler
-          title="contacts"
-          className="not-md:bg-slate-700"
-          childrenLayoutClassName="not-md:border-0 not-md:-mb-1"
-        >
-          <ContactItem icon="ri-mail-fill">zamelane@vk.com</ContactItem>
-          <ContactItem icon="ri-phone-fill">+79539266829</ContactItem>
-        </Spoiler>
-        <Spoiler
-          title="find-me-also-in"
-          className="not-md:bg-slate-700"
-          childrenLayoutClassName="not-md:border-0 not-md:-mb-1"
-        >
-          <ContactItem href="https://123.ru">Discord</ContactItem>
-        </Spoiler>
+        {
+          config.contacts.map((contact, i) => (
+            <Spoiler key={i}
+              title={contact.title}
+              className="not-md:bg-slate-700"
+              childrenLayoutClassName="not-md:border-0 not-md:-mb-1"
+            >
+              {
+                contact.items.map((item, i) => (
+                  <ContactItem key={i} href={item.href} icon={item.icon}>{item.text}</ContactItem>
+                ))
+              }
+            </Spoiler>
+          ))
+        }
       </div>
       <div className="w-full">
         <TabLayout className="not-md:hidden" />
@@ -51,7 +68,13 @@ export default function AboutPage() {
               <TextInput label="_name:" changeValue={v => setName(v)} />
               <TextInput label="_email:" changeValue={v => setEmail(v)} />
               <TextInput label="_message:" changeValue={v => setMessage(v)} inputType="textarea" />
-              <Button className="self-start" disabled>submit-message</Button>
+              <Button
+                className="self-start"
+                onClick={buttonClickHandler}
+                disabled={name === "" || email === "" || message === ""}
+                >
+                  submit-message
+                </Button>
             </div>
           </div>
 
@@ -100,7 +123,7 @@ export default function AboutPage() {
                   <CodeStringValue quotationMark={'"'}>{message}</CodeStringValue>
                 </div>
               </CodeLine>
-              <CodeLine lineNumber={7} lineSymbols={2}>
+              {/* <CodeLine lineNumber={7} lineSymbols={2}>
                 <p />
                 <div className="inline-flex">
                   <CodeVarName>date</CodeVarName>:
@@ -108,7 +131,7 @@ export default function AboutPage() {
                 <div className="inline-flex">
                   <CodeStringValue quotationMark={'"'}>123</CodeStringValue>
                 </div>
-              </CodeLine>
+              </CodeLine> */}
               <CodeLine lineNumber={8} lineSymbols={2}>
                 {"}"}
               </CodeLine>

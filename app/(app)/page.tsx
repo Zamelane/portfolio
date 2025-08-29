@@ -1,5 +1,6 @@
 "use client"
 
+import { config } from "@/config";
 import { HomeCode } from "@/src/components/blocks/homeCode";
 import { BlueBlur, GreenBlur } from "@/src/components/blurs";
 import { CodeConst, CodeLine, CodeStringValue, CodeVarName, Comment } from "@/src/components/code";
@@ -12,7 +13,12 @@ export default function Home() {
       <section>
         <div>
           <p className="text-lg">Hi all. I am</p>
-          <h1 className="text-6xl leading-16 text-heading-foreground not-lg:wrap-anywhere">Me name</h1>
+          <h1 className={cn(
+            "text-6xl leading-16 text-heading-foreground not-lg:wrap-anywhere",
+            config._home_h1_title_custom_class
+          )}>
+            {config.name} {config.surname}
+          </h1>
           <h2 className="text-indigo-500 text-3xl leading-10">{"> Fullstack developer"}</h2>
         </div>
         <div className="mt-[75px] flex flex-col gap-2">
@@ -26,9 +32,10 @@ export default function Home() {
           </CodeLine>
         </div>
       </section>
+
       <div className="min-w-[676px] h-full not-2xl:min-w-0">
-        <GreenBlur className="absolute top-0 left-2/4 size-[70vh] not-2xl:left-0" />
-        <BlueBlur className="absolute top-1/4 left-2/3 size-[70vh] not-2xl:left-0" />
+        <GreenBlur className="absolute pointer-events-none top-0 left-2/4 size-[70vh] not-2xl:left-0" />
+        <BlueBlur className="absolute pointer-events-none top-1/4 left-2/3 size-[70vh] not-2xl:left-0" />
         <div className="absolute top-1/2 -translate-y-1/2 not-2xl:hidden">
           <div className="flex flex-col gap-4">
             {

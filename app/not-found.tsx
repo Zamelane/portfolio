@@ -1,5 +1,12 @@
 import { CodeConst, CodeFunctionExecute, CodeLine, CodeOperator, CodeStringValue, CodeVarName } from "@/src/components/code";
 import Layout from "./(app)/layout";
+import { Metadata } from "next";
+import { config } from "@/config";
+
+export const metadata: Metadata = {
+  title: `${config.name} ${config.surname} | Not Found`,
+  description: `The NotFound page of the website is a portfolio owned by ${config.name} ${config.surname}`,
+};
 
 export default function NotFound() {
   const pageNotFoundStringValueBlock = (

@@ -4,6 +4,7 @@ import { cn } from "@/src/lib/utils"
 import Link from "next/link"
 import { MenuButton } from "./menu"
 import { usePathname } from "next/navigation"
+import { config } from "@/config"
 
 type MenuType = {
   center: MenuItemType[],
@@ -46,7 +47,7 @@ export function Header() {
   return (
     <header className="flex flex-row flex-nowrap border-b border-b-theme-stroke min-h-14 overflow-clip">
       <Link href='/' className="h-full px-6 flex items-center min-w-[243px] not-lg:min-w-auto">
-        <p>me-name</p>
+        <p>{ config.name } { config.surname }</p>
       </Link>
 
       <div className="h-full flex flex-row flex-nowrap not-lg:hidden">

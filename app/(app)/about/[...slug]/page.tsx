@@ -24,7 +24,7 @@ export function generateStaticParams() {
       return [...current];
     });
   }
-  console.log(JSON.stringify(slugConstructor(folderStructure)))
+  //console.log(JSON.stringify(slugConstructor(folderStructure)))
   return slugConstructor(folderStructure)
 }
 

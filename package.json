@@ -5,13 +5,10 @@
   "scripts": {
     "predev": "bun scripts/prebuild.ts",
     "prebuild": "bun scripts/prebuild.ts",
-
     "dev": "next dev",
     "dev-tb": "next dev --turbopack",
-
     "build": "next build",
     "start": "next start",
-    
     "lint": "next lint"
   },
   "dependencies": {
@@ -20,12 +17,14 @@
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
     "hamburger-react": "^2.5.2",
+    "lucide-react": "^0.542.0",
     "next": "15.4.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-markdown": "^10.1.0",
     "react-responsive": "^10.0.1",
     "remixicon": "^4.6.0",
+    "sonner": "^2.0.7",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {

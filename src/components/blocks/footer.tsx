@@ -1,25 +1,14 @@
-import { cn } from "@/src/lib/utils"
+import { config } from "@/config"
+import { cn, last } from "@/src/lib/utils"
+import { FooterConfigType, SocialType } from "@/src/types";
 import Link from "next/link"
 
-type SocialType = {
-  icon: string,
-  text?: string,
-  url: string
-}
-type FooterConfigType = {
-  social: SocialType[],
-  gh: SocialType
-}
-
 const FOOTER_CONFIG: FooterConfigType = {
-  social: [
-    { icon: 'ri-vk-fill', url: '/' },
-    { icon: 'ri-telegram-fill', url: '/' },
-  ],
+  social: config.social,
   gh: {
     icon: 'ri-github-fill',
-    text: '@zamelane',
-    url: 'https://github.com/zamelane',
+    text: '@' + last(config.github_url.split('/')),
+    url: config.github_url,
   }
 }
 
