@@ -17,10 +17,12 @@ export function TabLayout({ className, children }: TabLayoutProps) {
   )
 }
 
-type TabProps = ChildrenOptionalProps
-export function Tab({ children }: TabProps) {
+type TabProps = ChildrenOptionalProps & {
+  className?: string
+}
+export function Tab({ children, className }: TabProps) {
   return (
-    <div className="inline-flex min-w-60 py-3 px-6 border-r border-r-theme-stroke">
+    <div className={cn("inline-flex min-w-60 py-3 px-6 border-r border-r-theme-stroke", className)}>
       <span>{children}</span>
       <i className="ri-close-line ml-auto"/>
     </div>
