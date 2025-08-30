@@ -48,7 +48,7 @@ export function Spoiler({ title, isOpenDefault = true, isMobileOpenDefault = fal
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
+            initial={{ height: 0, opacity: 0, padding: 0, paddingLeft: 24 }}
             animate={{
               height: "auto",
               opacity: 1,
@@ -56,6 +56,8 @@ export function Spoiler({ title, isOpenDefault = true, isMobileOpenDefault = fal
                 height: { duration: 0.3 },
                 opacity: { duration: 0.2, delay: 0.1 },
               },
+              padding: 12,
+              paddingLeft: 24
             }}
             exit={{
               height: 0,
@@ -64,9 +66,10 @@ export function Spoiler({ title, isOpenDefault = true, isMobileOpenDefault = fal
                 height: { duration: 0.3 },
                 opacity: { duration: 0.1 },
               },
+              padding: 0
             }}
             className={cn(
-              "p-3 flex flex-col gap-2 border-b border-b-theme-stroke overflow-hidden",
+              "flex flex-col gap-2 border-b border-b-theme-stroke overflow-hidden",
               childrenLayoutClassName
             )}
           >

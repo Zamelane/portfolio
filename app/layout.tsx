@@ -7,6 +7,8 @@ import { NoSSRProviders } from "@/src/components/noSSRProviders";
 import { Toaster } from "sonner";
 import { cn } from '../src/lib/utils';
 import { config } from "@/config";
+import { AppProgressBar } from "next-app-progress-bar";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 const mainFont = localFont({
   src: [
@@ -28,7 +30,10 @@ const mainFont = localFont({
 })
 
 export const metadata: Metadata = {
-  title: `${config.name} ${config.surname} | Portfolio`,
+  title: {
+    default: `${config.name} ${config.surname} | Portfolio`,
+    template: `%s | Portfolio`
+  },
   description: `The portfolio website owned by ${config.name} ${config.surname}`,
 };
 
@@ -38,6 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={cn('bg-theme-backdrop', mainFont.variable)}>
       <body>
+        <AppProgressBar/>
         <NoSSRProviders>
           {children}
         </NoSSRProviders>

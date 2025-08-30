@@ -1,3 +1,4 @@
+import { technologyIcon } from "@/src/components/technologyIcon";
 import { ProjectContentType, ProjectTechnologiesType } from "@/src/types";
 
 export const projectTechnologies: ProjectTechnologiesType = [
@@ -5,10 +6,10 @@ export const projectTechnologies: ProjectTechnologiesType = [
     chapter: "Frameworks",
     technologies: [
       { icon: 'vuejs', name: "Vue" },
-      { icon: 'nextjs', name: "Next" },
+      { icon: technologyIcon('next_js.png'), name: "Next" },
       { icon: 'laravel', name: "Laravel" },
-      { icon: 'vitejs', name: "Vite" },
-      { icon: 'expressjs', name: "Express" },
+      { icon: technologyIcon('vite.png', 'vite-gr.png'), name: "Vite" },
+      { icon: technologyIcon('express.png'), name: "Express" },
       // { icon: 'elysiajs', name: "Elysia" },
       { icon: 'android', name: "Maui" },
       { icon: 'net', name: "WPF" },
@@ -44,7 +45,7 @@ export const projectTechnologies: ProjectTechnologiesType = [
     technologies: [
       { icon: 'pwa', name: "PWA" },
       { icon: 'android', name: "Android" },
-      // { icon: 'windows', name: "Desktop" },
+      { icon: technologyIcon('windows.png', 'windows-gr.png'), name: "Windows" },
     ]
   }
 ]
@@ -104,6 +105,12 @@ export const projects: ProjectContentType[] = [
         value: [
           'We graduated from college a couple of months ago. But even after that, our project remained convenient for everyone who uses it.'
         ]
+      },
+      {
+        type: 'media-carousel',
+        items: [
+
+        ]
       }
     ]
   },
@@ -121,7 +128,7 @@ export const projects: ProjectContentType[] = [
     slug: '_modbus',
     title: 'An application for working with devices using the modbus protocol',
     meta: {
-      technologies: ['C#', 'WPF'],
+      technologies: ['C#', 'WPF', 'Windows'],
     },
     content: []
   },
@@ -139,7 +146,7 @@ export const projects: ProjectContentType[] = [
     slug: '_effective-mobile-test-task',
     title: '💻 A test task from effective mobile',
     meta: {
-      technologies: ['Vite', 'React', 'TypeScript', 'PostgreSQL', 'PWA'],
+      technologies: ['Vite', 'React', 'TypeScript', 'PostgreSQL', 'PWA', 'Express'],
     },
     content: []
   },
@@ -148,7 +155,7 @@ export const projects: ProjectContentType[] = [
     slug: '_checkers-game-app',
     title: 'A game of checkers',
     meta: {
-      technologies: ['C#'],
+      technologies: ['C#', 'WPF', 'Windows'],
     },
     content: []
   },
