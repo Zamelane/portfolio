@@ -9,6 +9,8 @@ import { cn } from '../src/lib/utils';
 import { config } from "@/config";
 import { AppProgressBar } from "next-app-progress-bar";
 import "react-image-gallery/styles/css/image-gallery.css";
+import '@vidstack/react/player/styles/base.css';
+import '@vidstack/react/player/styles/plyr/theme.css';
 
 const mainFont = localFont({
   src: [

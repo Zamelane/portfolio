@@ -7,7 +7,9 @@ import Link from "next/link";
 import { Button } from "../button";
 import { cn } from "@/src/lib/utils";
 import { BlurAnimation } from "../animations/blurAnimation";
-import ImageGallery from "react-image-gallery";
+import ImageGallery, { ReactImageGalleryItem } from "react-image-gallery";
+import { MediaPlayer, MediaProvider } from '@vidstack/react';
+import { PlyrLayout, plyrLayoutIcons } from '@vidstack/react/player/layouts/plyr';
 
 type RenderProjectContentProps = {
   content: BlockType
@@ -160,21 +162,32 @@ function RenderUnderlineText(block: UnderlineTextType, key: string | undefined =
 }
 
 function RenderCarousel(block: MediaCarouselType) {
+  const renderVideo = (item: ReactImageGalleryItem) => {
+    return (
+      <MediaPlayer title={item.description} src={item.originalAlt}>
+        <MediaProvider />
+        <PlyrLayout icons={plyrLayoutIcons} />
+      </MediaPlayer>
+    )
+  }
 
-  const images = [
-    {
-      original: "https://avatars.mds.yandex.net/i?id=e13998091fefe4c2976252bed409a3f767e98c37-16405973-images-thumbs&n=13",
-      thumbnail: "https://avatars.mds.yandex.net/i?id=e13998091fefe4c2976252bed409a3f767e98c37-16405973-images-thumbs&n=13",
-    },
-    {
-      original: "https://avatars.mds.yandex.net/i?id=5c98c3b52deca6d7d365c963cbdd88f15e5f3c7b-16467784-images-thumbs&n=13",
-      thumbnail: "https://avatars.mds.yandex.net/i?id=5c98c3b52deca6d7d365c963cbdd88f15e5f3c7b-16467784-images-thumbs&n=13",
-    },
-    {
-      original: "https://avatars.mds.yandex.net/i?id=f719866fb3c470ef0f0586d12061ef54eace21f6-11499518-images-thumbs&n=13",
-      thumbnail: "https://avatars.mds.yandex.net/i?id=f719866fb3c470ef0f0586d12061ef54eace21f6-11499518-images-thumbs&n=13",
-    },
-  ];
+  const images: ReactImageGalleryItem[] = block.items.map(e => {
+    if (e.type === 'image') {
+      return {
+        original: e.href,
+        thumbnail: e.href,
+        description: e.alt
+      }
+    }
+    return {
+      original: e.poster_href,
+      thumbnail: e.poster_href,
+      originalAlt: e.href,
+      description: e.alt,
+      renderItem: renderVideo
+    }
+
+  })
 
   return (
     <div className="-ml-1">
@@ -184,7 +197,8 @@ function RenderCarousel(block: MediaCarouselType) {
         infinite
         showPlayButton={false}
         showNav={true}
-        showBullets
+        showFullscreenButton={false}
+        showBullets={false}
         thumbnailPosition="left"
       />
     </div>

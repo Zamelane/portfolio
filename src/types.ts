@@ -148,8 +148,13 @@ export type MediaCarouselType = {
     type: 'image'
     href: string
     alt: string
-  } &
-  { type: 'video', poster_href: string }>
+  }
+    | {
+      type: 'video',
+      poster_href: string
+      href: string
+      alt: string
+    }>
 }
 
 export type FilesBlockType = {

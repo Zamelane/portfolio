@@ -109,7 +109,11 @@ export const projects: ProjectContentType[] = [
       {
         type: 'media-carousel',
         items: [
-
+          {
+            type: 'image',
+            alt: '',
+            href: 'https://avatars.mds.yandex.net/i?id=e13998091fefe4c2976252bed409a3f767e98c37-16405973-images-thumbs&n=13'
+          }
         ]
       }
     ]
@@ -157,7 +161,19 @@ export const projects: ProjectContentType[] = [
     meta: {
       technologies: ['C#', 'WPF', 'Windows'],
     },
-    content: []
+    content: [
+      {
+        type: 'media-carousel',
+        items: [
+          {
+            type: 'video',
+            alt: 'test',
+            href: 'youtube/K8cVQ1UQuac',
+            poster_href: '/static/_checkers-game-app/1.png'
+          }
+        ]
+      }
+    ]
   },
   {
     image: '1.png',
