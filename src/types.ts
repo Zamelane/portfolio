@@ -62,7 +62,7 @@ export type ProjectContentType = {
     technologies: string[]
     date?: Date
   }
-  content: BlockType[]
+  content: BlockType
 }
 
 export type BlockType = Array<
@@ -85,6 +85,9 @@ export type ParagraphType = {
   value: string | Array<
     | string
     | LinkType
+    | UnderlineTextType
+    | ItalicTextType
+    | BoldTextType
   >
 }
 
@@ -170,3 +173,11 @@ export type ButtonsBlockType = {
     disabled?: boolean
   }>
 }
+
+export type TextType = string | Array<
+  | string
+  | LinkType
+  | UnderlineTextType
+  | ItalicTextType
+  | BoldTextType
+>

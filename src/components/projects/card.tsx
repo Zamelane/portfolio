@@ -6,6 +6,7 @@ import Image from "next/image"
 import { Button } from "../button"
 import { projects } from "@/static/projects/content"
 import { cn } from "@/src/lib/utils"
+import Link from 'next/link'
 
 export type ProjectCardType = {
   data: ProjectContentType
@@ -46,7 +47,9 @@ export function ProjectCard({ data, className }: ProjectCardType) {
 
         <div className="border-t border-t-slate-800 group-hover:border-t-slate-300 p-8 flex flex-col gap-5">
           <p>{ data.title }</p>
-          <Button className="bg-slate-600 text-white max-w-fit">view-project</Button>
+          <Link href={'projects/' + data.slug}>
+            <Button className="bg-slate-600 text-white max-w-fit">view-project</Button>
+          </Link>
         </div>
       </motion.div>
     </motion.div>
