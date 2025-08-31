@@ -32,26 +32,23 @@ export function ProjectCard({ data, className }: ProjectCardType) {
         <span>{" // " + data.slug}</span>
       </p>
 
-      <motion.div 
-        whileHover={{ scale: 0.99, boxShadow: "0 4px 14px 0 rgba(15, 23, 42, 0.25)" }}
-        className="group hover:border-slate-300 duration-300 min-h-80 bg-slate-950 border border-slate-800 rounded-2xl overflow-clip"
+      <div
+        className="transition-all duration-300 delay-300 group hover:scale-[101%] hover:shadow-[0_4px_14px_0_rgba(15,23,42,0.25)] hover:outline-slate-300 min-h-80 bg-slate-950 outline outline-slate-800 rounded-2xl overflow-clip"
       >
         <motion.div 
           className="min-h-56 max-h-56 overflow-clip relative"
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
         >
-          <Image src={imgSrc} alt="" fill className="object-cover transition-transform duration-300 group-hover:scale-110" />
+          <Image src={imgSrc} alt="" fill className="object-cover transition-all duration-300 group-hover:scale-110" />
           <i></i>
         </motion.div>
 
-        <div className="border-t border-t-slate-800 group-hover:border-t-slate-300 p-8 flex flex-col gap-5">
+        <div className="transition-all duration-300 delay-300 border-t border-t-slate-800 group-hover:border-t-slate-300 p-8 flex flex-col gap-5">
           <p>{ data.title }</p>
           <Link href={'projects/' + data.slug}>
             <Button className="bg-slate-600 text-white max-w-fit">view-project</Button>
           </Link>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   )
 }
