@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { ProjectContentType } from "@/src/types"
 import Image from "next/image"
 import { Button } from "../button"
-import { projects } from "@/static/projects/content"
+import { projects } from "@/static/projects"
 import { cn } from "@/src/lib/utils"
 import Link from 'next/link'
 

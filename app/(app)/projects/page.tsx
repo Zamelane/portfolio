@@ -4,7 +4,7 @@ import { Tab, TabLayout } from "@/src/components/blocks/tab";
 import { ProjectCard } from "@/src/components/projects/card";
 import { SelectItem } from "@/src/components/selectItem";
 import { Spoiler } from "@/src/components/spoiler";
-import { projects, projectTechnologies } from "@/static/projects/content";
+import { projects, projectTechnologies } from "@/static/projects";
 import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
